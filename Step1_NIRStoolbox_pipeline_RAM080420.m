@@ -7,19 +7,6 @@ raw = nirs.io.loadDirectory(datadir, {'Subject'});
 disp('All .nirs files loaded!')
 disp('-----------------------')
 
-% set the duration to be 6 sec
-for i=1:length(raw)
-    for j=1:length(raw(i).stimulus.values{1}.dur)
-        raw(i).stimulus.values{1}.dur(j)=6;
-    end
-    for j=1:length(raw(i).stimulus.values{2}.dur)
-        raw(i).stimulus.values{2}.dur(j)=6;
-    end
-    for j=1:length(raw(i).stimulus.values{3}.dur)
-        raw(i).stimulus.values{3}.dur(j)=6;
-    end
-end
-
 %% First Level Analysis
 disp('Running data resample...')
 resample=nirs.modules.Resample();

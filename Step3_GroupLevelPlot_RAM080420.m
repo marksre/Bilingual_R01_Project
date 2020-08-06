@@ -78,13 +78,12 @@ title('MatEd')
 function [intensity,p] = getintensity(c,GroupStats)
 Contrast=GroupStats.ttest(c);
 Contrasttable=Contrast.table;
-% intensity=Contrasttable.tstat(strcmp(Contrasttable.type,'hbo')&ismember(Contrasttable.source,[1 2 3 4 5 6 7 8]));
 intensity=Contrasttable.tstat(strcmp(Contrasttable.type,'hbo'));
 p=Contrasttable.p(strcmp(Contrasttable.type,'hbo'));
 end
 
 function plot(intensity,onlypositive,p)
-load CHMNI_Bilateral46_AUG2020.mat % Load Coordinates - Updated coordinates on Aug 2020
+load CHMNI_Bilateral46_AUG2020.mat % Load Coordinates - Updated Aug 2020
     % MNIcoordUnilateral23_AUG2020: Left hemisphere, removed channels 7 & 8 
     % Localization fixed August 2020, all coordinates shifted down slightly
 mx=4;
@@ -107,11 +106,11 @@ else
 end
 
 intensity(rind)=[];
-MNIcoordBi(rind,:)=[];
+CHMNI(rind,:)=[];
 
-MNIcoordstd=10*ones(length(MNIcoordBi));
+MNIcoordstd=10*ones(length(CHMNI));
 
-Plot3D_channel_registration_result(intensity, MNIcoordBi, MNIcoordstd,mx,mn);
+Plot3D_channel_registration_result(intensity, CHMNI, MNIcoordstd,mx,mn);
 
 camlight('headlight','infinite');
 lighting gouraud
