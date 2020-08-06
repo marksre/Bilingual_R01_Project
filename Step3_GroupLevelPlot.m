@@ -145,11 +145,11 @@ else
 end
 
 intensity(rind)=[];
-MNIcoordBi(rind,:)=[];
+CHMNI(rind,:)=[];
 
-MNIcoordstd=10*ones(length(MNIcoordBi));
+MNIcoordstd=10*ones(length(CHMNI));
 
-Plot3D_channel_registration_result(intensity, MNIcoordBi, MNIcoordstd,mx,mn);
+Plot3D_channel_registration_result(intensity, CHMNI, MNIcoordstd,mx,mn);
 
 camlight('headlight','infinite');
 lighting gouraud
